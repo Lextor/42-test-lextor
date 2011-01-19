@@ -1,0 +1,6 @@
+1) sudo easy_install virtualenv
+2) cd 42-test-lextor
+3) virtualenv ENV
+4) source env/bin/activate
+5) pip install django==1.2.4
+
