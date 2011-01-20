@@ -25,7 +25,8 @@ body {background-color:rgb(200,200,200);}
         <p>Jabber: {{ person.jabber }}</p>
         <p>Skype: {{ person.skype }}</p>
         <p>Other contacts: {{ person.other_contacts }}</p>
-      </div>
+      </div><hr/>
+    <a href="{% url request-list %}">requests</a>  
   </div>
 {% endblock %}
 </body>
