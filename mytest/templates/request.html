@@ -1,22 +1,17 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
-    "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html>
-<head>
-<style type="text/css">
-body {background-color:rgb(200,200,200);}
-.content {width:900px; background-color:white; margin:0px auto;}
-.leftcolumn, .rightcolumn {float:left; width:430px; height:auto; padding:0 10px; backgroundcolor:red}
+{% extends "main.html" %}
 
-</style>
-</head>
-<body>
 {% block content %}
   <div class=content>
     <h1>42 Coffee Cups Test Assignment</h1>
-    <table border="1">
     {% for request in requestlist %}
+    <table frame="hsides">
       <tr>
-        <td colspan="4">{{ request.time }}</td>
+        <td> REQUEST # {{ request.id }}</td>
+        <td colspan="4">REQUEST TIME: {{ request.time }}</td>
+      </tr>
+      <tr>
+        <td>HTTP_USER_AGENT</td>
+        <td colspan="3">{{ request.http_user_agent }}</td>
       </tr>
       <tr>
         <td>PATHINFO</td>
@@ -30,15 +25,9 @@ body {background-color:rgb(200,200,200);}
         <td>{{ request.lang }}</td>
         <td>{{ request.tz }}</td>
       </tr>
-      <tr>
-        <td>HTTP_USER_AGENT</td>
-        <td colspan="3">{{ request.http_user_agent }}</td>
       </tr>
-      </tr>
-    {% endfor %}
     </table>
+    {% endfor %}
   </div>
 {% endblock %}
-</body>
-</html>
 
