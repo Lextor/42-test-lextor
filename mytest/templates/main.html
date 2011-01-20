@@ -4,12 +4,13 @@
 <head>
 <style type="text/css">
 body {background-color:rgb(200,200,200);}
-.content {width:900px; height:100%; background-color:white; margin:0px auto;}
+.content {width:900px; height:200%; background-color:white; margin:0px auto;}
 .leftcolumn, .rightcolumn {float:left; width:430px; height:300px; padding:0 10px; backgroundcolor:red}
 
 </style>
 </head>
 <body>
+{% block content %}
   <div class=content>
     <h1>42 Coffee Cups Test Assignment</h1>
       <div class=leftcolumn>
@@ -24,8 +25,10 @@ body {background-color:rgb(200,200,200);}
         <p>Jabber: {{ person.jabber }}</p>
         <p>Skype: {{ person.skype }}</p>
         <p>Other contacts: {{ person.other_contacts }}</p>
-      </div>
+      </div><hr/>
+    <a href="{% url request-list %}">requests</a>  
   </div>
+{% endblock %}
 </body>
 </html>
 
