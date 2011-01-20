@@ -4,31 +4,41 @@
 <head>
 <style type="text/css">
 body {background-color:rgb(200,200,200);}
-.content {width:900px; height:100%; background-color:white; margin:0px auto;}
-.leftcolumn, .rightcolumn {float:left; width:430px; height:300px; padding:0 10px; backgroundcolor:red}
+.content {width:900px; background-color:white; margin:0px auto;}
+.leftcolumn, .rightcolumn {float:left; width:430px; height:auto; padding:0 10px; backgroundcolor:red}
 
 </style>
 </head>
 <body>
+{% block content %}
   <div class=content>
     <h1>42 Coffee Cups Test Assignment</h1>
-      <div class=leftcolumn>
-        <p>First name: {{ person.first_name }}</p>
-        <p>Last name: {{ person.last_name }}</p>
-        <p>Date of birth: {{ person.date_of_birth }}</p>
-        <p>Bio: {{ person.about }}</p>
-      </div>
-      <div class=rightcolumn>
-        <p>Contacts</p>
-        <p>Email: {{ person.mail_address }}</p>
-        <p>Jabber: {{ person.jabber }}</p>
-        <p>Skype: {{ person.skype }}</p>
-        <p>Other contacts: {{ person.other_contacts }}</p>
-      </div>
-      <div>
-      
-      </div>
+    <table border="1">
+    {% for request in requestlist %}
+      <tr>
+        <td colspan="4">{{ request.time }}</td>
+      </tr>
+      <tr>
+        <td>PATHINFO</td>
+        <td>REQUEST_METHOD</td>
+        <td>LANG</td>
+        <td>TZ(time zone)</td>
+      </tr>
+      <tr>
+        <td>{{ request.path_info }}</td>
+        <td>{{ request.request_method }}</td>
+        <td>{{ request.lang }}</td>
+        <td>{{ request.tz }}</td>
+      </tr>
+      <tr>
+        <td>HTTP_USER_AGENT</td>
+        <td colspan="3">{{ request.http_user_agent }}</td>
+      </tr>
+      </tr>
+    {% endfor %}
+    </table>
   </div>
+{% endblock %}
 </body>
 </html>
 

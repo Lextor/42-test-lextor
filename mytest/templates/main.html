@@ -10,6 +10,7 @@ body {background-color:rgb(200,200,200);}
 </style>
 </head>
 <body>
+{% block content %}
   <div class=content>
     <h1>42 Coffee Cups Test Assignment</h1>
       <div class=leftcolumn>
@@ -25,10 +26,8 @@ body {background-color:rgb(200,200,200);}
         <p>Skype: {{ person.skype }}</p>
         <p>Other contacts: {{ person.other_contacts }}</p>
       </div>
-      <div>
-      
-      </div>
   </div>
+{% endblock %}
 </body>
 </html>
 
