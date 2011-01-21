@@ -18,7 +18,6 @@ body {background-color:rgb(200,200,200);}
         <p>Last name: {{ person.last_name }}</p>
         <p>Date of birth: {{ person.date_of_birth }}</p>
         <p>Bio: {{ person.about }}</p>
-        <p>Bio: </p>
       </div>
       <div class=rightcolumn>
         <p>Contacts</p>
@@ -28,6 +27,10 @@ body {background-color:rgb(200,200,200);}
         <p>Other contacts: {{ person.other_contacts }}</p>
       </div><hr/>
     <a href="{% url request-list %}">requests</a>  
+    <p>SITE ADMINS: {{ settings.ADMINS }}</p>
+    <p>TIME_ZONE settings: {{ settings.TIME_ZONE }}</p>
+    <p>TEMPLATE_DIRS settings: {{ settings.TEMPLATE_DIRS }}</p>
+    <p>DATABASES ENGINE: {{ settings.DATABASES.default.ENGINE }}</p>
   </div>
 {% endblock %}
 </body>
