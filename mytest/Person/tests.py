@@ -35,5 +35,5 @@ class PersonTest(TestCase):
 
     def testBasic(self):
         c = Client()
-        responce = c.get('/', HTTP_USER_AGENT = 'mozilla', LANG = 'ua', TZ = 'Ukraine')
+        responce = c.get('/')
         self.assertEqual(responce.status_code, 200)
