@@ -6,6 +6,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^$', 'mytest.views.index'),
-    (r'^reqlist/$', include('mytest.Request.urls')),
+    (r'^reqlist/$', include('mytest.requests.urls')),
     (r'^admin/', include(admin.site.urls)),
 )
