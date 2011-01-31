@@ -1,5 +1,4 @@
-from django.conf import settings
-from mytest.requests.models import Requestinfo
+from models import Requestinfo
 
 
 class RequestinfoMiddleware(object):
