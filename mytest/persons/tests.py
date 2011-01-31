@@ -4,11 +4,9 @@ unittest). These will both pass when you run "manage.py test".
 
 Replace these with more appropriate tests for your application.
 """
-import unittest
 from django.test import TestCase
-
 from django.test.client import Client
-from mytest.Person.models import Person
+from mytest.persons.models import Person
 
 
 class SimpleTest(TestCase):
@@ -24,6 +22,7 @@ Another way to test that 1 + 1 is equal to 2.
 >>> 1 + 1 == 2
 True
 """}
+
 
 class PersonTest(TestCase):
     def setUp(self):
