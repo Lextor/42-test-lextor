@@ -13,4 +13,3 @@ class Person(models.Model):
 
     def __unicode__(self):
         return u'%s %s' % (self.last_name, self.first_name)
-
