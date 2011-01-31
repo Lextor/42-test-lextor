@@ -1,10 +1,9 @@
-from django.conf import settings
-from mytest.Request.models import Requestlist
+from models import Requestinfo
 
 
-class RequestlistMiddleware(object):
+class RequestinfoMiddleware(object):
     def process_request(self, request):
-        inst = Requestlist()
+        inst = Requestinfo()
         inst.path_info = request.META['PATH_INFO']
         inst.request_method = request.META['REQUEST_METHOD']
 

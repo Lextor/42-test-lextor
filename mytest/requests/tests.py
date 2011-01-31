@@ -6,6 +6,8 @@ Replace these with more appropriate tests for your application.
 """
 
 from django.test import TestCase
+from django.test.client import Client
+
 
 class SimpleTest(TestCase):
     def test_basic_addition(self):
@@ -21,3 +23,11 @@ Another way to test that 1 + 1 is equal to 2.
 True
 """}
 
+
+class RequestinfoTest(TestCase):
+        
+
+    def testBasic(self):
+        c = Client()
+        responce = c.get('/reqlist/')
+        self.assertEqual(responce.status_code, 200)
