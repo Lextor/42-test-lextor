@@ -1,5 +1,5 @@
 from django.contrib import admin
-from mytest.Person.models import Person
+from mytest.persons.models import Person
 from django.db import models
 
 
