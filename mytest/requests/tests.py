@@ -25,7 +25,6 @@ True
 
 
 class RequestinfoTest(TestCase):
-        
 
     def testBasic(self):
         c = Client()
