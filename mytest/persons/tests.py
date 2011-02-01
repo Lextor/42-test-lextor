@@ -34,5 +34,14 @@ class PersonTest(TestCase):
 
     def testBasic(self):
         c = Client()
-        responce = c.get('/')
-        self.assertEqual(responce.status_code, 200)
+        response = c.get('/')
+        self.assertEqual(response.status_code, 200)
+
+
+class ContextProcTest(TestCase):
+
+    def testBasic(self):
+        c = Client()
+        response = c.get('/')
+        self.assertEqual(response.context['settings'].TIME_ZONE, 'Ukraine/Kiev')
+        self.assertNotEqual(response.content.find('django.db.backends.sqlite3'), -1)
