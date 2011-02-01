@@ -1,1 +1,16 @@
-[{"pk": 1, "model": "persons.person", "fields": {"first_name": "Alexander", "last_name": "Tsishkovsky", "mail_address": "lextor.alex@gmail.com", "other_contacts": "+38-066-784-80-62", "about": "some words about myself", "date_of_birth": "1982-07-22", "skype": "lextor_alex", "jabber": "lextora@jabber.ru"}}]
+[
+    {
+        "pk": 1, 
+        "model": "persons.person", 
+        "fields": {
+            "first_name": "Alexander", 
+            "last_name": "Tsishkovsky", 
+            "mail_address": "lextor.alex@gmail.com", 
+            "other_contacts": "+38-066-784-80-62", 
+            "about": "some words about myself", 
+            "date_of_birth": "1982-07-22", 
+            "skype": "lextor_alex", 
+            "jabber": "lextora@jabber.ru"
+        }
+    }
+]
