@@ -13,6 +13,15 @@ body {background-color:rgb(200,200,200);}
 {% block content %}
   <div class=content>
     <h1>42 Coffee Cups Test Assignment</h1>
+        <div>
+          <ul>
+            {% if user.is_authenticated %}
+              {% comment %}<li><a href="{% url  %}">{{ user.username }}</a></li>{% endcomment %}
+            {% else %}
+              <li><a href="{% url auth_login %}">Login</a></li>
+            {% endif %}
+          </ul>
+        </div>
       <div class=leftcolumn>
         <p>First name: {{ person.first_name }}</p>
         <p>Last name: {{ person.last_name }}</p>
