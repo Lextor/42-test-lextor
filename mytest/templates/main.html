@@ -16,7 +16,7 @@ body {background-color:rgb(200,200,200);}
         <div>
           <ul>
             {% if user.is_authenticated %}
-              {% comment %}<li><a href="{% url  %}">{{ user.username }}</a></li>{% endcomment %}
+              {% comment %}<li><a href="{% url  %}">{{ user.username }}</a></li>{% endcomment %}{{ user.username }}
             {% else %}
               <li><a href="{% url auth_login %}">Login</a></li>
             {% endif %}

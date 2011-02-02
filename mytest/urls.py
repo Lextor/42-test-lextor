@@ -10,4 +10,5 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}, name='auth_login'),
     (r'^logout/$', 'django.contrib.auth.views.logout'),
+    #(r'^edit/$', 'mytest.views.edit_person'),
 )
