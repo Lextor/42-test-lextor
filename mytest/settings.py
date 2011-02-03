@@ -111,4 +111,4 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 )
 
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/edit/"
