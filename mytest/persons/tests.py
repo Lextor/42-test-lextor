@@ -6,7 +6,6 @@ Replace these with more appropriate tests for your application.
 """
 from django.test import TestCase
 from django.test.client import Client
-from mytest.persons.models import Person
 from django.contrib.auth.models import User
 
 
@@ -26,7 +25,6 @@ True
 
 
 class PersonTest(TestCase):
-
     def testBasic(self):
         c = Client()
         response = c.get('/')
@@ -40,11 +38,11 @@ class ContextProcTest(TestCase):
         self.assertEqual(response.context['settings'].TIME_ZONE, 'Ukraine/Kiev')
         self.assertNotEqual(response.content.find('django.db.backends.sqlite3'), -1)
 
+
 class EditFormTest(TestCase):
     def setUp(self):
         user = User.objects.create_user('lex', 'lex@mail.ru', '2243')
         user.save()
-      
 
     def testBasic(self):
         c = Client()
