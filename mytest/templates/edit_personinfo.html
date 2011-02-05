@@ -1,33 +1,27 @@
 {% extends "main.html" %}
 
-{% block content_title %}
-<h1 class="pagetitle">Edit contact info for {{ user }}</h1>
-{% endblock %}
+{% block login %}{% endblock %}
 
 {% block content %}
-
-<div class=content>
-  <div><h1>42 Coffee Cups Test Assignment</h1></div>
-    <form method="POST" action="">
+  <form method="POST" action="">
 {% csrf_token %}
-
-      <div class=leftcolumn>
-    {% for field in form %}
-        <p align="left">{{ field.label_tag }}: {{ field }}</p>
-      {% if forloop.counter == 4 %}
+      <div class="column">
+            {% for field in form %}
+            <div class="block">{{ field.label_tag }}:</div> <div>{{ field }}</div>
+              {% if field.errors %}
+              <font color="red">{{ field.errors }}</font>
+              {% endif %}
+              {% if forloop.counter == 4 %}
+          </div><div class="column">
+              {% endif %}
+              {% endfor %}
       </div>
-      <div class=rightcolumn>
-      {% endif %}
-      {% if field.errors %}
-        <p><font color="red">{{ field.errors }}</font></p>
-      {% endif %}
-    {% endfor %}
-      </div>
-      <div>
+    <div class="footer">
         <input type="submit" name="submit" value="Save" id="submit">
         <a href="{% url index %}">Cancel</a>
-      </div>
+    </div>
 </form>
 </div>
 
 {% endblock %}
+{% block footer %}{% endblock %}

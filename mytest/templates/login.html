@@ -1,11 +1,12 @@
 {% extends "main.html" %}
 
-{% block content %}
+{% block login %}{% endblock %}
 
+{% block content %}
 {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
-
+<div class="footer">
 <form method="post" action="{% url django.contrib.auth.views.login %}">
 {% csrf_token %}
 <table>
@@ -22,5 +23,6 @@
 <input type="submit" value="login" />
 <input type="hidden" name="next" value="{{ next }}" />
 </form>
-
+</div>
 {% endblock %}
+{% block footer %}{% endblock %}

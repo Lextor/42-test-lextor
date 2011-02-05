@@ -1,8 +1,8 @@
 {% extends "main.html" %}
 
+{% block login %}{% endblock %}
+
 {% block content %}
-  <div class=content>
-    <h1>42 Coffee Cups Test Assignment</h1>
     {% for request in requestlist %}
     <table frame="hsides">
       <tr>
@@ -28,6 +28,5 @@
       </tr>
     </table>
     {% endfor %}
-  </div>
 {% endblock %}
-
+{% block footer %}{% endblock %}
