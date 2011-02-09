@@ -34,6 +34,7 @@ class EditFormTest(TestCase):
         response = c.get('/edit/')
         self.assertEqual(response.status_code, 200)
         self.assertNotEqual(response.content.find('Alexander'), -1)
+        self.assertTrue(response.content.find('id_skype') < response.content.find('id_first_name'))
         response = c.post('/edit/', {'first_name': 'Newname', 'last_name': 'Newlastn', 'skype': '1'}, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
         response = c.get('/')
         self.assertTrue("Newname" in response.content)
