@@ -1,51 +1,64 @@
 {% extends "main.html" %}
 
-
 {% block extra_head %}
   <script type="text/javascript">
     var MEDIA_URL = '{{ MEDIA_URL }}';
   </script>
 <link type="text/css" href="{{ MEDIA_URL }}js/jquery-ui/css/ui-lightness/jquery-ui-1.8.9.custom.css" rel="stylesheet" />
 <script src="{{ MEDIA_URL }}js/jquery-ui/js/jquery-1.4.4.min.js" type="text/javascript"></script>
+<script src="{{ MEDIA_URL }}js/jquery-ui/js/jquery.form.js" type="text/javascript"></script>
+<script src="{{ MEDIA_URL }}js/jquery-ui/js/jquery.blockUI.js" type="text/javascript"></script>
 <script src="{{ MEDIA_URL }}js/jquery-ui/js/jquery-ui-1.8.9.custom.min.js" type="text/javascript"></script>
 <script src="{{ MEDIA_URL }}js/jquery-ui/development-bundle/ui/i18n/jquery-ui-i18n.js" type="text/javascript"></script>
 {% endblock extra_head %}
 
 {% block in_body %}
 <script type="text/javascript">
-$(document).ready(
-    function(){
-        $.datepicker.setDefaults(
-        $.extend($.datepicker.regional["ru"])
-        );
-        $("#id_date_of_birth").datepicker({dateFormat: 'yy-mm-dd',});
+$(document).ready(function(){
+    var options = {
+        dataType: 'json',
+        beforeSubmit: function(){
+            $.blockUI({ fadeIn: 200, message: "Please wait, loading data"});
+        },
+        success: function(response){
+            $.unblockUI();
+            if (response.status=="ok")
+            {
+		$('#form').html(response.text);
+                alert("Changes have been successfully saved!");
+            }
+            else 
+	    {
+		$('#form').html(response.text);
+                alert("Correct input data!");
+	    }
+            $("#id_date_of_birth").datepicker({dateFormat: 'yy-mm-dd'});
         }
+    };
+    $.datepicker.setDefaults(
+        $.extend($.datepicker.regional["ru"])
     );
+    $("#id_date_of_birth").datepicker({
+        dateFormat: 'yy-mm-dd'
+    });
+    $('#myForm').ajaxForm(options);
+});
 </script>
 {% endblock in_body %}
-
 
 {% block login %}{% endblock %}
 
 {% block content %}
-  <form method="POST" action="">
+  <form id="myForm" method="POST" action="/edit/">
 {% csrf_token %}
-      <div class="column">
-            {% for field in form %}
-            <div class="block">{{ field.label_tag }}:</div> <div>{{ field }}</div>
-              {% if field.errors %}
-              <font color="red">{{ field.errors }}</font>
-              {% endif %}
-              {% if forloop.counter == 4 %}
-          </div><div class="column">
-              {% endif %}
-              {% endfor %}
-      </div>
+<div id="form">
+{% include "edit_personinfo_form.html" %}
+</div>
     <div class="footer">
         <input type="submit" name="submit" value="Save" id="submit">
         <a href="{% url index %}">Cancel</a>
     </div>
-</form>
+  </form>
 </div>
 
 {% endblock %}
