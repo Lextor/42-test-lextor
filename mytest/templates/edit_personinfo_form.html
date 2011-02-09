@@ -1,5 +1,5 @@
       <div class="column">
-            {% for field in form %}
+            {% for field in form reversed %}
             <div class="block">{{ field.label_tag }}:</div> <div>{{ field }}</div>
               {% if field.errors %}
               <font color="red">{{ field.errors }}</font>
