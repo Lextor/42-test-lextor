@@ -11,10 +11,15 @@ body {background-color:rgb(200,200,200);}
 .column {float:left; width: 430px; padding:0 10px;}
 .footer {clear: both}
 .block {float: left; width:8em;}
-
 </style>
+
+{% block extra_head %}{% endblock extra_head %}
+
+
 </head>
 <body>
+{% block in_body %}
+{% endblock in_body %}
 <div class="content">
 {% block header %}
   <div class="header">

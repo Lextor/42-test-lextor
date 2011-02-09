@@ -1,0 +1,11 @@
+      <div class="column">
+            {% for field in form %}
+            <div class="block">{{ field.label_tag }}:</div> <div>{{ field }}</div>
+              {% if field.errors %}
+              <font color="red">{{ field.errors }}</font>
+              {% endif %}
+              {% if forloop.counter == 4 %}
+          </div><div class="column">
+              {% endif %}
+              {% endfor %}
+      </div>
