@@ -26,8 +26,10 @@ body {background-color:rgb(200,200,200);}
       <div class="sitename"><h1>42 Coffee Cups Test Assignment</h1></div>
       {% block login %}
       <div class="login">
+        {% load user_tags %}
         {% if user.is_authenticated %}
-          {{ user.username }} you can <a href="{% url auth_logout %}">logout</a>
+          <div>{{ user.username }} you can <a href="{% url auth_logout %}">logout</a></div>
+          <div>else you can <a href="{% edit_link user %}">edit</a> profile</div>
         {% else %}
           <a href="{% url auth_login %}">Login</a>
         {% endif %}
