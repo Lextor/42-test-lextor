@@ -106,6 +106,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'mytest.persons',
     'mytest.requests',
+    'mytest.utils',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
