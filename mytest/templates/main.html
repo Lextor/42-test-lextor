@@ -34,9 +34,9 @@ body {background-color:rgb(200,200,200);}
           <a href="{% url auth_login %}">Login</a>
         {% endif %}
       </div>
-      {% endblock %}
+      {% endblock login %}
   </div>
-{% endblock%}
+{% endblock header %}
 {% block content %}
       <div class="column">
         <p>First name: {{ person.first_name }}</p>
