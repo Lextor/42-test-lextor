@@ -1,4 +1,3 @@
-from django.forms import ModelForm, DateField
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
@@ -9,7 +8,6 @@ from django.utils import simplejson
 from django.forms.widgets import TextInput
 from django.conf import settings
 from django import forms
-from django.contrib import messages
 
 
 class CalendarWidget(TextInput):
@@ -17,12 +15,11 @@ class CalendarWidget(TextInput):
         js = (settings.MEDIA_URL + "js/jquery-ui/js/jquery-1.4.4.min.js",
               settings.MEDIA_URL + "js/jquery-ui/js/jquery-ui-1.8.9.custom.min.js",
               settings.MEDIA_URL + "js/jquery-ui/development-bundle/ui/i18n/jquery-ui-i18n.js")
-        css = { "all": (settings.MEDIA_URL + "js/jquery-ui/css/ui-lightness/jquery-ui-1.8.9.custom.css",)}
+        css = {"all": (settings.MEDIA_URL + "js/jquery-ui/css/ui-lightness/jquery-ui-1.8.9.custom.css",)}
 
 
 class PersonForm(forms.ModelForm):
     date_of_birth = forms.DateField(widget=CalendarWidget)
-
 
     class Meta:
         model = Person
