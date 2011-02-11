@@ -1,5 +1,4 @@
 from django.test import TestCase
-from django.test.client import Client
 from django.contrib.auth.models import User
 from django.template import Context, loader
 from mytest.persons.models import Person

@@ -1,4 +1,3 @@
-from django.forms import ModelForm
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
@@ -20,7 +19,7 @@ class CalendarWidget(TextInput):
 
 
 class PersonForm(forms.ModelForm):
-    date_of_birth = forms.DateField(widget=CalendarWidget, required = False)
+    date_of_birth = forms.DateField(widget=CalendarWidget, required=False)
 
     class Meta:
         model = Person
