@@ -1,6 +1,8 @@
 from django.test import TestCase
 from django.test.client import Client
 from django.contrib.auth.models import User
+from django.template import Context, loader
+from mytest.persons.models import Person
 
 
 class TemplateTagTest(TestCase):
@@ -9,7 +11,8 @@ class TemplateTagTest(TestCase):
         user.save()
 
     def testBasic(self):
-        c = Client()
-        response = c.login(username='lex', password='2243')
-        response = c.get('/')
-        self.assertTrue('/admin/auth/user/' in response.content)
+        t = loader.get_template_from_string("{% load user_tags %}{% edit_link obj %}")
+        u = User.objects.get(pk=1)
+        self.assertEqual(t.render(Context({'obj': u})), '/admin/auth/user/1/')
+        p = Person.objects.get(pk=1)
+        self.assertEqual(t.render(Context({'obj': p})), '/admin/persons/person/1/')
