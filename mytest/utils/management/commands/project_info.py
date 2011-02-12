@@ -1,5 +1,4 @@
-from django.core.management.base import BaseCommand, CommandError, NoArgsCommand
-from django.conf import settings
+from django.core.management.base import NoArgsCommand
 from django.db.models import get_models
 
 
@@ -11,4 +10,3 @@ class Command(NoArgsCommand):
             self.stdout.write(n)
             self.stderr.write("Error: ")
             self.stderr.write(n)
-
