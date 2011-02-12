@@ -1,12 +1,14 @@
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand, CommandError, NoArgsCommand
 from django.conf import settings
+from django.db.models import get_models
 
 
-class Command(BaseCommand):
-    args = '<poll_id poll_id ...>'
-    help = 'Closes the specified poll for voting'
+class Command(NoArgsCommand):
 
-    def handle(self, *args, **options):
-        for i in settings.:
-            print ' "%s"' % poll_id
+    def handle_noargs(self, **options):
+        for model in get_models():
+            n = "[%s] - %d objects\n" % (model.__name__, model.objects.count())
+            self.stdout.write(n)
+            self.stderr.write("Error: ")
+            self.stderr.write(n)
 
