@@ -4,6 +4,7 @@ from django.db.models.signals import post_save, post_delete
 from django.contrib.auth.models import Message
 from django.contrib.sessions.models import Session
 from django.contrib.admin.models import LogEntry
+from django.conf import settings
 
 
 class Requestinfo(models.Model):
@@ -13,6 +14,7 @@ class Requestinfo(models.Model):
     http_user_agent = models.CharField(max_length=255)
     lang = models.CharField(max_length=50)
     tz = models.CharField(max_length=50)
+    priority = models.IntegerField(default=settings.PRIORITY)
 
 
 EVENT_CHOICES = {
