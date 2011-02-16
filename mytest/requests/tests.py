@@ -1,7 +1,8 @@
 from django.test import TestCase
 from django.test.client import Client
-from mytest.requests.models import ModelEntry
+from mytest.requests.models import Requestinfo, ModelEntry
 from mytest.persons.models import Person
+from django.conf import settings
 
 
 class RequestinfoTest(TestCase):
@@ -10,6 +11,8 @@ class RequestinfoTest(TestCase):
         c = Client()
         responce = c.get('/reqlist/')
         self.assertEqual(responce.status_code, 200)
+        r = Requestinfo.objects.get(pk=1)
+        self.assertEqual(r.priority, settings.PRIORITY)
 
 
 class ModelEntryTest(TestCase):
