@@ -1,0 +1,8 @@
+body {background-color:rgb(200,200,200)}
+.content {width:900px; background-color:white; margin:0px auto}
+.header {height: 80px}
+.sitename {float: left; width:580px; margin: 0 10px}
+.login {float: right; width:300px; margin-top: 36px; padding: 0}
+.column {float:left; width: 430px; padding:0 10px}
+.footer {clear: both}
+.block {float: left; width:8em}
