@@ -11,6 +11,10 @@ class RequestinfoTest(TestCase):
         c = Client()
         responce = c.get('/reqlist/')
         self.assertEqual(responce.status_code, 200)
+        for i in range(20):
+            responce = c.get('/reqlist/')
+        requestlist = Requestinfo.objects.all().order_by('-id')[:10]
+        self.assertEqual(list(responce.context['requestlist']), list(requestlist))
         r = Requestinfo.objects.get(pk=1)
         self.assertEqual(r.priority, settings.PRIORITY)
 
