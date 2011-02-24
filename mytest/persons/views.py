@@ -27,7 +27,8 @@ class PersonForm(forms.ModelForm):
     class Media:
         js = (settings.MEDIA_URL + "js/jquery-ui/js/jquery-1.4.4.min.js",
               settings.MEDIA_URL + "js/jquery-ui/js/jquery.form.js",
-              settings.MEDIA_URL + "js/jquery-ui/js/jquery.blockUI.js")
+              settings.MEDIA_URL + "js/jquery-ui/js/jquery.blockUI.js",
+              settings.MEDIA_URL + "js/edit_personinfo.js")
 
 
 @login_required

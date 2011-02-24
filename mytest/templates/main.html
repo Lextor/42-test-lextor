@@ -2,24 +2,13 @@
     "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html>
 <head>
-<style type="text/css">
-body {background-color:rgb(200,200,200);}
-.content {width:900px; background-color:white; margin:0px auto;}
-.header {height: 80px}
-.sitename {float: left; width:580px; margin: 0 10px}
-.login {float: right; width:300px; margin-top: 36px; padding: 0}
-.column {float:left; width: 430px; padding:0 10px;}
-.footer {clear: both}
-.block {float: left; width:8em;}
-</style>
+
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/layout.css"/>
 
 {% block extra_head %}{% endblock extra_head %}
 
-
 </head>
 <body>
-{% block in_body %}
-{% endblock in_body %}
 <div class="content">
 {% block header %}
   <div class="header">
